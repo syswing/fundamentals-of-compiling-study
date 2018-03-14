@@ -1,0 +1,134 @@
+package grammar;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class syntax {
+	public Map <String,String> grammar= new HashMap<String,String>();
+	public Map <Integer,String> SymbolTable = new HashMap <Integer,String>();
+	public Map <String,String> select = new HashMap <String,String>();
+//	void InitGrammar(){
+//		grammar.put("P", "P->S");
+//		grammar.put("P", "P->VS");
+//		grammar.put("P", "P->CP'");
+//		grammar.put("P'", "P'->S");
+//		grammar.put("P'", "P'->VS");
+//		grammar.put("C", "C->Const BB'");
+//		grammar.put("B'", "B'->BB'");
+//		grammar.put("B'", "B'->null");
+//		grammar.put("B", "B->I=U");
+//		grammar.put("U", "U->DD'");
+//		grammar.put("D'", "D'->DD'");
+//		grammar.put("D'", "D'->null");
+//		grammar.put("L", "L->a-z");
+//		grammar.put("D", "D->0-9");
+//		grammar.put("I", "I->LI'");
+//		grammar.put("I'", "I'->LI'");
+//		grammar.put("I'", "I'->DI'");
+//		grammar.put("I'", "I'->null");
+//		grammar.put("V", "V->Var IV'");
+//		grammar.put("V'", "V'->,IV'");
+//		grammar.put("V'", "V'->null");
+//		grammar.put("S", "S->ES|T|K|O|null");
+//		grammar.put("ES", "ES->I=E");
+//		grammar.put("E", "E->A'NN'");
+//		grammar.put("N'", "N'->ANN'");
+//		grammar.put("N'", "N'->null");
+//		grammar.put("A'", "A'->null");
+//		grammar.put("A'", "A'->A");
+//		grammar.put("A", "A->+|-");
+//		grammar.put("N", "N->FF'");
+//		grammar.put("F'","F'->MFF'");
+//		grammar.put("F'","F'->null");
+//		grammar.put("F", "F->I|U|(E)");
+//		grammar.put("M", "M->*|/");
+//		grammar.put("T", "T->if Q then ST'");
+//		grammar.put("T'", "T'->else S");
+//		grammar.put("T'", "T'->null");
+//		grammar.put("Q", "Q->EXE");
+//		grammar.put("X", "X->==|<=|<|>|>=|<>");
+//		grammar.put("K", "K->while Q do S");
+//		grammar.put("O", "O->begin SS' end");
+//		grammar.put("S'", "S'->;SS'");
+//		grammar.put("S'", "S'->null");
+//	}//导入语法
+	void InitSymbolTable(){
+		SymbolTable.put(1, "a-z");
+		SymbolTable.put(2, "0-9");
+		SymbolTable.put(3, "if");
+		SymbolTable.put(4, "while");
+		SymbolTable.put(5, "begin");
+		SymbolTable.put(6, "null");
+		SymbolTable.put(7, "$");
+		SymbolTable.put(8, "Const");
+		SymbolTable.put(9, "Var");
+		SymbolTable.put(10, ",");
+		SymbolTable.put(11, "end");
+		SymbolTable.put(12, "+");
+		SymbolTable.put(13, "-");
+		SymbolTable.put(14, "*");
+		SymbolTable.put(15, "/");
+		SymbolTable.put(16, "else");
+		SymbolTable.put(17, ";");
+		SymbolTable.put(18, "(");
+		SymbolTable.put(19, "==");
+		SymbolTable.put(20, "<=");
+		SymbolTable.put(21, ">");
+		SymbolTable.put(22, "<");
+		SymbolTable.put(23, ">=");
+		SymbolTable.put(24, "<>");
+		SymbolTable.put(25, "do");
+		SymbolTable.put(26, "then");
+		SymbolTable.put(27, ")");
+		SymbolTable.put(28, "=");
+	}//select集中的所有符号的表
+	void InitSelect(){
+//		select.put("P->S", "1.3.4.5.6.7");
+//		select.put("P->CP'", "8");
+//		select.put("P'->S", "1.3.4.5.6.7");
+//		select.put("P->VS", "9");
+//		select.put("P'->VS", "9");
+		select.put("C->Const BB'", "8");
+		select.put("B'->,BB'", "1");
+		select.put("B->I=U", "1");
+		select.put("B'->null", "7.6");
+		select.put("U->DD'", "2");
+		select.put("D'->DD'", "2");
+		select.put("D'->null", "6.7");
+		select.put("L->a-z", "1");
+		select.put("D->0-9", "2");
+		select.put("I->LI'", "1");
+		select.put("I'->LI'", "1");
+		select.put("I'->DI'", "2");
+		select.put("I'->null", "6.7.28");
+		select.put("V->VAR IV';", "9");
+		select.put("V'->,IV'", "10");
+		select.put("V'->null", "6.17");
+		select.put("S->ES|T|K|O|null", "1.3.4.5.6.7.11.16.17");
+		select.put("ES->I=E", "1");
+		select.put("E->A'NN'", "6.12.13");
+		select.put("N'->ANN'", "12.13");
+		select.put("N'->null", "6.7.27.19.20.21.22.23.24.25.26.17");
+		select.put("A'->null", "6.18.1.2");
+		select.put("A'->A", "12.13");
+		select.put("A->+|-", "12.13");
+		select.put("N->FF'", "18.1.2");
+		select.put("F'->MFF'", "14.15");
+		select.put("F'->null", "6.12.13.7.27.19.20.21.22.23.24.25.26.17");
+		select.put("F->I|U|(E)", "1.2.18");
+		select.put("M->*|/", "14,15");
+		select.put("T->if Q then ST'", "3");
+		select.put("T'->else S", "16");
+		select.put("T'->null", "6.7.16.17.11");
+		select.put("Q->EXE", "12.13.1.2.18");
+		select.put("X->==|<=|>|<|>=|<>", "19.20.21.22.23.24");
+		select.put("K->while Q do S", "4");
+		select.put("O->begin SS' end", "5");
+		select.put("S'->;SS'", "17");
+		select.put("S'->null", "6,11");
+	}//初始化select集
+	public syntax(){
+		InitSymbolTable();
+		InitSelect();
+	}
+}
