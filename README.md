@@ -12,7 +12,7 @@
 条件:Q				关系运算符:X	 当循环语句:K
 复合语句:O		常量定义:B
 ***
-##ll1语法
+ll1语法
 * P->CS				P->S			select集有交集，提取左因子
    P->S				P->VS			 
    P->VS			P->CP'
@@ -56,7 +56,7 @@
 						O->begin SS' end
 						S'->;S S'
 						S'->null  
-##SELECT集		
+SELECT集		
 * 	select(P->S)={id,if,while,begin,null,$}
 * 	select(P->CP')={Const}
 * 	select(P'->S)={id,if,while,begin,null,$}
@@ -94,7 +94,7 @@
 * 	select(M->*|/)={ *,/}
 * 	select(T->if Q then ST')={if}
 * 	select(T'->else S)={else}
-* 	select(T'->null)={null,$,;,else,end}  遗留问题
+* 	select(T'->null)={null,$,;,else,end}  
 * 	select(Q->EXE)={+,-,0-9,a-z,(}
 * 	select(X->==|<=|<|>|>=|<>)={==,<=,>,<,>=,<>}
 * 	select(K->while Q do S)={while}
